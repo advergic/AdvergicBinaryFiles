@@ -1,0 +1,4 @@
+framework module AdvergicSDK {
+  header "AdvergicSDK-Swift.h"
+  requires objc
+}

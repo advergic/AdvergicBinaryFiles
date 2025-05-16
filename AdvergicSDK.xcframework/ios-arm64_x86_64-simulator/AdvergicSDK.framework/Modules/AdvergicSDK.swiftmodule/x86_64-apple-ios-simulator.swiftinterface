@@ -1,0 +1,64 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.0 effective-4.1.50 (swiftlang-6.0.0.9.10 clang-1600.0.26.2)
+// swift-module-flags: -target x86_64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 4 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name AdvergicSDK
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+import Foundation
+import GoogleMobileAds
+import PrebidMobile
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class AdUnits : ObjectiveC.NSObject {
+  public var adUnitID: Swift.String
+  public var adUnitType: Swift.String
+  public var configID: Swift.String
+  public var autozone: Swift.String
+  public var sportsticky: Swift.Bool
+  public var parallax: Swift.Bool
+  public var lazy: Swift.Bool
+  public var mediaType: AdvergicSDK.Mediatype
+  public var bids: [AdvergicSDK.Bid]
+  @objc deinit
+}
+public protocol AdvergicSDKClassProtocols : AnyObject {
+  func advergicBannerDidReceived()
+}
+@objc @_inheritsConvenienceInitializers public class AdvergicSDKClass : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension AdvergicSDK.AdvergicSDKClass {
+  public func advergicInit()
+  public func getAdvergicAdUnits() -> [AdvergicSDK.AdUnits]
+  public func showAdvergicAd(adUnitID: Swift.String, viewController: UIKit.UIViewController, completion: @escaping (GoogleMobileAds.AdManagerBannerView?, (any Swift.Error)?) -> Swift.Void)
+}
+extension AdvergicSDK.AdvergicSDKClass : GoogleMobileAds.BannerViewDelegate {
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func bannerViewDidReceiveAd(_ bannerView: GoogleMobileAds.BannerView)
+  public func bannerViewDidFailToReceiveAd(_ bannerView: GoogleMobileAds.BannerView, withError error: any Swift.Error)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func bannerViewDidRecordImpression(_ bannerView: GoogleMobileAds.BannerView)
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class Banner : ObjectiveC.NSObject {
+  public var sizes: [[Swift.String]]
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class Bid : ObjectiveC.NSObject {
+  public var bidder: Swift.String
+  public var size: [[Swift.String]]
+  public var params: [Swift.String : Swift.String]
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class Mediatype : ObjectiveC.NSObject {
+  public var banner: AdvergicSDK.Banner
+  public var video: AdvergicSDK.Video
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class Publisher : ObjectiveC.NSObject {
+  public var name: Swift.String
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class Video : ObjectiveC.NSObject {
+  public var playerSizes: [[Swift.String]]
+  @objc deinit
+}
